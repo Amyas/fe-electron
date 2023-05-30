@@ -1,6 +1,7 @@
-import './App.scss'
+import styles from './app.scss'
 import Kb10Img from '@/assets/images/10kb_img.jpeg'
 import test from './test.json'
+console.log(styles['test----a'])
 console.log(test.wangjianpeng)
 
 // const testa = 1
@@ -14,7 +15,7 @@ hello('123')
 const App = () => {
 	return (
 		<div>
-			<h2 className='test'>hello 12341world</h2>
+			<h2 className={styles.bbb}>hello 12341world</h2>
 			{test.wangjianpeng.obj}
 			<div>process.env: {JSON.stringify(process.env)}</div>
 			<img src={Kb10Img} alt='' />

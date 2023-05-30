@@ -4,7 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 1.1.0 (2023-05-30)
 
-
 ### Features
 
-* **global:** initial 5154923
+- **global:** initial 5154923

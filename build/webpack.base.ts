@@ -26,15 +26,20 @@ const baseConfig: Configuration = {
 	module: {
 		rules: [
 			{
-				test: /\.(ts|tsx)$/,
+				test: /\.(ts|tsx)$/i,
 				exclude: /node_modules/,
 				use: ['thread-loader', 'babel-loader']
 			},
 			{
-				test: /\.scss$/,
+				test: /\.scss$/i,
 				use: [
 					isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-					'css-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true
+						}
+					},
 					'postcss-loader',
 					'sass-loader'
 				]
@@ -52,7 +57,7 @@ const baseConfig: Configuration = {
 				}
 			},
 			{
-				test: /.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件
+				test: /.(woff2?|eot|ttf|otf)$/i, // 匹配字体图标文件
 				type: 'asset', // type选择asset
 				parser: {
 					dataUrlCondition: {
@@ -64,7 +69,7 @@ const baseConfig: Configuration = {
 				}
 			},
 			{
-				test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/, // 匹配媒体文件
+				test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/i, // 匹配媒体文件
 				type: 'asset', // type选择asset
 				parser: {
 					dataUrlCondition: {

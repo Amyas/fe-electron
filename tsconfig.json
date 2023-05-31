@@ -10,7 +10,8 @@
 		"noEmit": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["src/*"]
+			"@/*": ["src/render/*"],
+			"@main/*": ["src/main/*"]
 		},
 		"typeRoots": ["./typings/*.d.ts", "node_modules/@types"],
 		"jsx": "react-jsx",
@@ -22,6 +23,10 @@
 				}
 			}
 		]
+	},
+	"ts-node": {
+		// Do not forget to `npm i -D tsconfig-paths`
+		"require": ["tsconfig-paths/register"]
 	},
 	"include": ["./src", "./typings/*.d.ts"],
 	"exclude": ["node_modules", "dist", "./build/webpack.prod.ts"]

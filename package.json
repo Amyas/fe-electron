@@ -2,9 +2,10 @@
 	"name": "fe-electron",
 	"version": "1.2.0",
 	"description": "",
-	"main": "index.js",
+	"main": "src/main/index.ts",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development BASE_ENV=dev webpack server -c build/webpack.dev.ts",
+		"dev:main": "electronmon -r ts-node/register/transpile-only ./src/main/index.ts",
+		"dev:render": "cross-env NODE_ENV=development BASE_ENV=dev webpack server -c build/webpack.dev.ts",
 		"build": "cross-env NODE_ENV=production BASE_ENV=prod webpack -c build/webpack.prod.ts",
 		"analy": "cross-env NODE_ENV=production BASE_ENV=prod webpack -c build/webpack.analy.ts",
 		"lint": "pnpm lint:eslint && pnpm lint:prettier",
@@ -18,10 +19,14 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"antd": "^5.5.2",
 		"classnames": "^2.3.2",
 		"dotenv": "^16.0.3",
+		"electron": "^25.0.0",
+		"normalize.css": "^8.0.1",
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"tsconfig-paths": "^4.2.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.22.1",
@@ -45,6 +50,7 @@
 		"css-loader": "^6.8.1",
 		"css-minimizer-webpack-plugin": "^5.0.0",
 		"cz-git": "^1.6.1",
+		"electronmon": "^2.0.2",
 		"eslint": "^8.41.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-config-standard": "^17.1.0",

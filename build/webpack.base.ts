@@ -12,7 +12,7 @@ const envConfig = dotenv.config({
 })
 
 const baseConfig: Configuration = {
-	entry: path.join(__dirname, '../src/index.tsx'),
+	entry: path.join(__dirname, '../src/render/index.tsx'),
 	output: {
 		filename: 'static/js/[name].[chunkhash:8].js',
 		path: path.join(__dirname, '../dist'),
@@ -85,7 +85,8 @@ const baseConfig: Configuration = {
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 		alias: {
-			'@': path.join(__dirname, '../src')
+			'@': path.join(__dirname, '../src/render'),
+			'@main': path.join(__dirname, '../src/main')
 		}
 	},
 	plugins: [

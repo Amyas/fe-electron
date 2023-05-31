@@ -10,13 +10,14 @@ interface Configuration extends WebpackConfiguration {
 	devServer?: WebpackDevServerConfiguration
 }
 
-const openBrowser = require('./utils/openBrowser')
+// const openBrowser = require('./utils/openBrowser')
 
 const host = '127.0.0.1'
 const port = '8082'
 
 const devConfig: Configuration = merge(baseConfig, {
 	mode: 'development',
+	target: ['web', 'electron-renderer'],
 	devtool: 'eval-cheap-module-source-map'
 })
 
@@ -40,7 +41,7 @@ const devServer = new WebpackDevServer(
 )
 
 devServer.start().then(() => {
-	openBrowser(`http://${host}:${port}`)
+	// openBrowser(`http://${host}:${port}`)
 })
 
 export default devConfig

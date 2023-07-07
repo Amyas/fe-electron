@@ -1,13 +1,19 @@
 import styles from './app.scss'
-import TopicList from '@/components/topic-list'
-import TopicWrapper from '@/components/topic-wrapper'
-import listData from '@/mock-data/list.json'
+import Login from './windows/login'
+import Main from './windows/main'
+import Worker from './windows/worker'
 
-const App = () => {
+interface Props {
+	windowId: string
+}
+
+const App: React.FC<Props> = props => {
+	console.log(props)
 	return (
 		<div className={styles.app}>
-			<TopicList list={listData}></TopicList>
-			<TopicWrapper></TopicWrapper>
+			{props.windowId === 'main' && <Main />}
+			{props.windowId === 'worker' && <Worker />}
+			{props.windowId === 'login' && <Login />}
 		</div>
 	)
 }

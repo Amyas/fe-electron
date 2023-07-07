@@ -89,6 +89,9 @@ const baseConfig: Configuration = {
 			'@main': path.join(__dirname, '../src/main')
 		}
 	},
+	externals: {
+		electron: 'require("electron")'
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'webpack-react-ts',

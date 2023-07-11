@@ -8,7 +8,6 @@ interface Props {
 }
 
 const App: React.FC<Props> = props => {
-	console.log(props)
 	return (
 		<div className={styles.app}>
 			{props.windowId === 'main' && <Main />}

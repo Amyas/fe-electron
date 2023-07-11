@@ -1,5 +1,6 @@
 import { BrowserWindow, ipcMain } from 'electron'
 import { EventEmitter } from 'events'
+import { IpcConnector } from '@rpc/index'
 
 export default class WorkerWindow extends EventEmitter {
 	static createWindow(APP_URL: string) {
@@ -15,6 +16,7 @@ export default class WorkerWindow extends EventEmitter {
 			worker.webContents.openDevTools({ mode: 'undocked' })
 			worker.loadURL(APP_URL + '?windowId=worker')
 			ipcMain.on('worker-ready', (_, isReady: boolean) => {
+				IpcConnector.instance.listen(worker)
 				resolve(isReady)
 			})
 		})

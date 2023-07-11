@@ -10,9 +10,47 @@ interface IMenus {
 	}
 }
 
+export interface IUserInfo {
+	_id: string
+	username: string
+	nickname: string
+	avatar: string
+	intro: string
+	email: string
+	createdAt: string
+	updatedAt: string
+	token: string
+}
+
+export interface IFriend {
+	_id: string
+	userId: string
+	createdAt: string
+	updatedAt: string
+	friendId: IUserInfo
+}
+
+export interface IPrivateMessage {
+	_id: string
+	userId: IUserInfo
+	friendId: IUserInfo
+	type: number
+	content: string
+	createdAt: string
+	updatedAt: string
+}
+
+export interface Imessages {
+	[key: string]: IPrivateMessage[]
+}
+
 export interface State {
 	menus: IMenus
 	selectedMenu: keyof IMenus
+	userInfo: IUserInfo | null
+	friendList: IFriend[]
+	selectedFriend: IUserInfo | null
+	messages: Imessages
 }
 
 const initialState: State = {
@@ -33,7 +71,11 @@ const initialState: State = {
 			icon: SettingPNG
 		}
 	},
-	selectedMenu: 'chat'
+	selectedMenu: 'people',
+	userInfo: null,
+	friendList: [],
+	selectedFriend: null,
+	messages: {}
 }
 
 export default initialState

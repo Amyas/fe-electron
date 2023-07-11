@@ -11,7 +11,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["src/render/*"],
-			"@main/*": ["src/main/*"]
+			"@main/*": ["src/main/*"],
+			"@rpc/*": ["src/rpc/*"]
 		},
 		"typeRoots": ["./typings/*.d.ts", "node_modules/@types"],
 		"jsx": "react-jsx",

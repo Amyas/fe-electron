@@ -14,7 +14,8 @@ const electronConfig: Configuration = {
 	resolve: {
 		extensions: ['.ts'],
 		alias: {
-			'@main': path.join(__dirname, '../src/main')
+			'@main': path.join(__dirname, '../src/main'),
+			'@rpc': path.join(__dirname, '../src/rpc')
 		}
 	}
 }

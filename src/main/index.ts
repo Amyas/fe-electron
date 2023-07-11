@@ -10,7 +10,7 @@ import LoginWindow from './windows/login'
 Utils.hiddenSecurityWarnings()
 
 const store = new Store()
-store.clear()
+// store.clear()
 
 const APP_URL = app.isPackaged
 	? 'file://' + path.join(__dirname, 'index.html')

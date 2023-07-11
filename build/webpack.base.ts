@@ -86,7 +86,8 @@ const baseConfig: Configuration = {
 		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 		alias: {
 			'@': path.join(__dirname, '../src/render'),
-			'@main': path.join(__dirname, '../src/main')
+			'@main': path.join(__dirname, '../src/main'),
+			'@rpc': path.join(__dirname, '../src/rpc')
 		}
 	},
 	externals: {

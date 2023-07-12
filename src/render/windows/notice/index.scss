@@ -1,0 +1,66 @@
+.notice {
+	width: 100%;
+	height: 100%;
+	padding: 20px 40px;
+	background-color: #f2f2f2;
+}
+
+.noticeItem {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 10px;
+	width: 100%;
+	padding: 20px 40px;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+
+.noticeItem + .noticeItem {
+	margin-top: 20px;
+}
+
+.noticeItemMain {
+	display: flex;
+}
+
+.noticeItemAvatar {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	overflow: hidden;
+	background-color: red;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.noticeItemContent {
+	margin-left: 10px;
+}
+
+.noticeItemContentHeader {
+	padding-bottom: 4px;
+	font-size: 14px;
+
+	span {
+		padding: 0 10px;
+		color: #999;
+	}
+}
+
+.noticeItemContentHeader .nickname {
+	color: #4099f7;
+	padding-left: 0;
+	font-size: 18px;
+}
+
+.noticeItemContentMessage {
+	color: #999;
+}
+
+.noticeItemBtn {
+	color: #999;
+}

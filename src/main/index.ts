@@ -6,11 +6,13 @@ import MainWindow from '@main/windows/main'
 
 import * as Utils from '@main/utils'
 import LoginWindow from './windows/login'
+import SearchWindow from './windows/search'
+import NoticeWindow from './windows/notice'
 
 Utils.hiddenSecurityWarnings()
 
 const store = new Store()
-// store.clear()
+store.clear()
 
 const APP_URL = app.isPackaged
 	? 'file://' + path.join(__dirname, 'index.html')
@@ -32,6 +34,14 @@ app.whenReady().then(() => {
 
 	ipcMain.handle('get-user-info', () => {
 		return store.get('userInfo')
+	})
+
+	ipcMain.on('show-search-window', () => {
+		SearchWindow.createWindow(APP_URL, { show: true })
+	})
+
+	ipcMain.on('show-notice-window', () => {
+		NoticeWindow.createWindow(APP_URL, { show: true })
 	})
 })
 

@@ -77,6 +77,19 @@
 
 .messageItemRight {
 	flex-direction: row-reverse;
+
+	.messageItemContent {
+		padding-left: 0;
+		padding-right: 8px;
+	}
+
+	.messageItemAvatar {
+		flex-shrink: 0;
+	}
+
+	.messageItemContentName {
+		text-align: right;
+	}
 }
 
 .messageItem + .messageItem {

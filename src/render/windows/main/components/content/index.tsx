@@ -48,6 +48,7 @@ const Content = () => {
 				})
 			)
 			chatService.actions.privateMessage(message, selectedFriend!._id)
+			setMessage('')
 		}
 	}
 

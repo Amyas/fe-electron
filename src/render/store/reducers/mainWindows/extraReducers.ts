@@ -8,6 +8,7 @@ import { IUserInfo, State } from './state'
 
 export const fetchLocalUserInfo = createAsyncThunk('main/fetchLocalUserInfo', async () => {
 	const userInfo = await electron.ipcRenderer.invoke('get-user-info')
+	localStorage.setItem('userInfo', JSON.stringify(userInfo))
 	return userInfo
 })
 

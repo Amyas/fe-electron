@@ -1,4 +1,9 @@
-import { IFriend, IPrivateMessage, IUserInfo } from '@/store/reducers/mainWindows/state'
+import {
+	IFriend,
+	IFriendNotice,
+	IPrivateMessage,
+	IUserInfo
+} from '@/store/reducers/mainWindows/state'
 import { Service } from '@rpc/index'
 import { Subject } from 'rxjs'
 import { io, Socket } from 'socket.io-client'
@@ -10,6 +15,8 @@ class ChatService extends Service {
 	friendListUpdated: Subject<IFriend[]> = new Subject()
 	messageUpdated: Subject<IPrivateMessage> = new Subject()
 	historyMessageUpdated: Subject<IPrivateMessage[]> = new Subject()
+	saerchFriendOrGroupUpdated: Subject<IUserInfo[]> = new Subject()
+	friendNoticeUpdated: Subject<IFriendNotice[]> = new Subject()
 	initial(userInfo: IUserInfo) {
 		this.userInfo = userInfo
 		this.socket = io('http://127.0.0.1:3000', { autoConnect: false })
@@ -43,6 +50,18 @@ class ChatService extends Service {
 			console.log('history-message-receive', data)
 			this.historyMessageUpdated.next(data)
 		})
+
+		// 搜索好友或群
+		this.socket.on('search-friend-or-group-receive', (data: IUserInfo[]) => {
+			console.log('search-friend-or-group-receive', data)
+			this.saerchFriendOrGroupUpdated.next(data)
+		})
+
+		// 收到好友通知
+		this.socket.on('friend-notice-receive', (data: IFriendNotice[]) => {
+			console.log('friend-notice-receive', data)
+			this.friendNoticeUpdated.next(data)
+		})
 	}
 
 	// 获取好友列表
@@ -63,6 +82,16 @@ class ChatService extends Service {
 			to,
 			content: message
 		})
+	}
+
+	// 搜索好友或群
+	searchFriendOrGroup(keyword: string) {
+		this.socket.emit('search-friend-or-group', keyword)
+	}
+
+	// 获取好友通知
+	getFriendNotice() {
+		this.socket.emit('get-friend-notice')
 	}
 }
 

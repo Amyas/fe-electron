@@ -8,6 +8,10 @@ const serve = axios.create({
 // 添加请求拦截器
 serve.interceptors.request.use(
 	config => {
+		const userInfo = localStorage.getItem('userInfo')
+		if (userInfo) {
+			config.headers.Authorazition = JSON.parse(userInfo).token
+		}
 		return config
 	},
 	error => {

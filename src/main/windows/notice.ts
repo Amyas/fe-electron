@@ -1,12 +1,12 @@
 import { BrowserWindow } from 'electron'
 import { EventEmitter } from 'events'
 
-export default class SearchWindow extends EventEmitter {
+export default class NoticeWindow extends EventEmitter {
 	static window: BrowserWindow | null = null
 	static createWindow(APP_URL: string, options?: Electron.BrowserWindowConstructorOptions) {
-		const login = new BrowserWindow({
-			width: 320,
-			height: 424,
+		const window = new BrowserWindow({
+			width: 680,
+			height: 630,
 			...options,
 			webPreferences: {
 				nodeIntegration: true,
@@ -14,8 +14,8 @@ export default class SearchWindow extends EventEmitter {
 				webSecurity: false
 			}
 		})
-		login.webContents.openDevTools({ mode: 'undocked' })
-		login.loadURL(APP_URL + '?windowId=search')
-		this.window = login
+		window.webContents.openDevTools({ mode: 'undocked' })
+		window.loadURL(APP_URL + '?windowId=notice')
+		this.window = window
 	}
 }

@@ -1,0 +1,56 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	background-color: #d7eafa;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.list {
+}
+
+.item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.itemMain {
+	display: flex;
+	align-items: center;
+}
+
+.itemAvatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	overflow: hidden;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.itemContent {
+	padding-left: 10px;
+}
+
+.itemContentNickname {
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 6px;
+}
+
+.itemContentUsername {
+	font-size: 12px;
+}
+
+.itemRight {
+}

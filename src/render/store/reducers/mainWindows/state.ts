@@ -20,6 +20,7 @@ export interface IUserInfo {
 	createdAt: string
 	updatedAt: string
 	token: string
+	isFriend?: string
 }
 
 export interface IFriend {
@@ -38,6 +39,16 @@ export interface IPrivateMessage {
 	content: string
 	createdAt: string
 	updatedAt: string
+}
+
+export interface IFriendNotice {
+	_id: string
+	createdAt: string
+	updatedAt: string
+	userId: IUserInfo
+	friendId: IUserInfo
+	applyMessage: string
+	status: number
 }
 
 export interface Imessages {

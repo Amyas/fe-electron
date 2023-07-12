@@ -15,6 +15,7 @@ import { IPrivateMessage, type IFriend } from '@/store/reducers/mainWindows/stat
 import { fetchLocalUserInfo } from '@/store/reducers/mainWindows/extraReducers'
 
 const Main = () => {
+	console.log(Date.now())
 	const userInfo = useAppSelector(state => state.mainWindow.userInfo)
 	const dispatch = useAppDispatch()
 
